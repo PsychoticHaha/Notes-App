@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 body {
   overflow: hidden;
 }
@@ -254,7 +255,8 @@ body {
   justify-content: space-between;
   background-color: #5a5a5a;
   color: #e8e8e8;
-  padding: 5px 0;
+  padding: 5px 10px;
+  font-family: 'Montserrat',sans-serif;
 
   & + p {
     max-width: 60%;
@@ -264,6 +266,9 @@ body {
 .singlenote .note-content {
   min-height: 100px;
   background-color: #F4D06F;
+  font-family: 'Montserrat',sans-serif;
+  line-height: 20px;
+  padding: 10px 10px;
 }
 
 .singlenote .btns {
