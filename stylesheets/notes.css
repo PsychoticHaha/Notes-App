@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 body {
   overflow: hidden;
 }
@@ -85,10 +86,9 @@ body {
   display: flex;
   justify-content: flex-start;
   row-gap: 600px;
-  -moz-column-gap: 100px;
-       column-gap: 100px;
+  column-gap: 100px;
   padding: 0;
-  background-color: purple;
+  /* background-color: purple; */
   min-height: calc(100vh - 70px);
 }
 
@@ -248,7 +248,8 @@ body {
   justify-content: space-between;
   background-color: #5a5a5a;
   color: #e8e8e8;
-  padding: 5px 0;
+  padding: 5px 10px;
+  font-family: "Montserrat", sans-serif;
 }
 .singlenote .title + p {
   max-width: 60%;
@@ -257,6 +258,9 @@ body {
 .singlenote .note-content {
   min-height: 100px;
   background-color: #F4D06F;
+  font-family: "Montserrat", sans-serif;
+  line-height: 20px;
+  padding: 10px 10px;
 }
 
 .singlenote .btns {
@@ -320,9 +324,7 @@ body {
   color: #e8e8e8;
   border-radius: 10px;
   transition: 0.5s ease-out;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .mobile-header .your-notes {
@@ -354,22 +356,28 @@ body {
   .mobile-header .your-notes, .mobile-header .add-note {
     display: flex;
   }
+
   .box-homepage {
     flex-direction: column;
   }
+
   .notepage.form {
     width: 100%;
   }
+
   .box-homepage .content {
     width: 100%;
   }
+
   #any-note {
     left: 100px;
   }
+
   .box-homepage.up {
     flex-direction: column-reverse !important;
   }
+
   .singlenote {
     width: 90%;
   }
-}/*# sourceMappingURL=notes.css.map */
+}
