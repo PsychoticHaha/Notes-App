@@ -5,10 +5,10 @@
   $dbPassword = 'change2';
   $dsn = 'mysql:host=change3;dbname=change4';
 }
-** Ilay ovaina1 io miova anle "username" omen'ny infinityfree;
-Ilay ovaina2 miova anle "database password" omen'ny infinityfree;
-Ilay ovaina3 miova anle "hostname" omeny'ny infinityfree;
-Ilay ovaina4 miova anle "database Name" omen'ny infinityfree;
+** change1 should be changed to "Database Username" of your host service;
+** change2 should be changed to "Database Password" of your host service;
+** change1 should be changed to "Database Host Server" of your host service;
+** change1 should be changed to "Database Name" of your host service;
 
 
 
