@@ -1,0 +1,14 @@
+# Don't forget to change credentials inside pdo.php file to your own database connection.
+
+{
+  $dbUsername = 'change1';
+  $dbPassword = 'change2';
+  $dsn = 'mysql:host=change3;dbname=change4';
+}
+** Ilay ovaina1 io miova anle "username" omen'ny infinityfree;
+Ilay ovaina2 miova anle "database password" omen'ny infinityfree;
+Ilay ovaina3 miova anle "hostname" omeny'ny infinityfree;
+Ilay ovaina4 miova anle "database Name" omen'ny infinityfree;
+
+
+

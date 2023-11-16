@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+# Check if the requested file has ".php" as extension 
+RewriteCond %{REQUEST_FILENAME}\.php -f
+# Rewrite the URL without ".php" extension
+RewriteRule ^([^/]+)/?$ $1.php
+</IfModule>
