@@ -1,7 +1,7 @@
 const showPwdBtn = document.querySelectorAll('.show-password span');
 showPwdBtn.forEach(btn => {
   btn.addEventListener('click', () => {
-    console.log('tongasoa');
+    
     const input = btn.previousElementSibling;
     if (input.getAttribute('type') == 'text') {
       input.setAttribute('type', 'password');

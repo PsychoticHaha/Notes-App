@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['logged'] == 'true') {
-  echo '<div class="success tips">You are now connected</div>';
+  echo '<div class="success tips">You are connected</div>';
 } else {
   $_SESSION['logged'] = 'error';
   header('Location:./index');
@@ -13,7 +13,7 @@ if ($_SESSION['logged'] == 'true') {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="stylesheets/common.css">
     <link rel="stylesheet" href="stylesheets/notes.css">
     <title>Home</title>
   </head>
@@ -45,16 +45,16 @@ if ($_SESSION['logged'] == 'true') {
         <span class="text"> Your notes</span>
       </div>
     </div>
+    <form action="" method="post">
+      <input type="submit" name="logout" id='logout' value="Logout">
+    </form>
     <div class="box-homepage">
-      <form action="" method="post">
-        <input type="submit" name="logout" id='logout' value="Logout">
-      </form>
-      <div class="container note">
+      <div class="notepage form">
         <form action="" method="">
           <label for="note-title">Title</label>
           <input type="text" name="title" id="note-title" placeholder="Your note title">
           <label for="note-body">Note</label>
-          <textarea id="note-body" name="note" placeholder="Your note body"></textarea>
+          <textarea id="note-body" name="note" placeholder="Your note content..."></textarea>
           <div class="buttons">
             <input type="submit" id="save" name="save" value="Save">
             <input type="submit" id="saveChange" name="saveChange" value="Save Changes" style="display:none">
@@ -66,8 +66,10 @@ if ($_SESSION['logged'] == 'true') {
         <div class="heading">
           <h3>Your NOTELIST</h3>
         </div>
-        <div class="" id="any-note">
-          <h3>You have any note yet !</h3>
+        <div class="note-empty">
+          <div class="" id="any-note">
+            <h3>You have any note yet !</h3>
+          </div>
         </div>
         <div class="body">
           <div class="singlenote">
@@ -94,58 +96,6 @@ if ($_SESSION['logged'] == 'true') {
                 Delete
               </a>
             </div>
-          </div>
-          <div class="singlenote">
-            <div class="title">
-              <p>Note 2</p>
-            </div>
-            <div class="note-content">
-              <p>This is an example of note</p>
-            </div>
-            <div class="btns">
-              <a class="edit" href="">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                </svg>
-                Edit
-              </a>
-              <a class="delete" href="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                </svg>
-                Delete
-              </a>
-            </div>
-          </div>
-
-          <div class="singlenote">
-            <div class="title">
-              <p>Note 3</p>
-            </div>
-            <div class="note-content">
-              <p>This is an example of note</p>
-            </div>
-            <div class="btns">
-              <a class="edit" href="">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                </svg>
-                Edit
-              </a>
-              <a class="delete" href="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                </svg>
-                Delete
-              </a>
-            </div>
-          </div>
-          <div class="singlenote" style="height:400vh">
-
           </div>
         </div>
       </div>

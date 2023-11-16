@@ -15,7 +15,7 @@ saveBtn.addEventListener('click', (event) => {
 })
 
 document.addEventListener('DOMContentLoaded', getNotes());
-
+// Function for note saving
 function saveNote(params) {
   const url = './CRUD/createNotes.php',
     xhr = new XMLHttpRequest();
@@ -25,7 +25,7 @@ function saveNote(params) {
         const result = JSON.parse(xhr.responseText);
         console.log((result == "NOTE SAVED"));
         if (result === "NOTE SAVED") {
-          //  Show success message
+          //  Show success message only when note is saved
           const msg = document.createElement('div');
           msg.setAttribute('class', 'success tips');
           msg.innerHTML = 'Note Saved !';
@@ -66,7 +66,11 @@ async function getNotes() {
           title = element.title,
           content = element.content,
           creation_date = element.creation_date;
-
+        if (id == "") {
+          document.querySelector('.note-empty').style = 'display:flex';
+        } else {
+          document.querySelector('.note-empty').style = 'display:none';
+       
         html += `<div class="singlenote" id='${id}'>
         <div class="title">
           <p>${title}</p>
@@ -93,7 +97,7 @@ async function getNotes() {
         </div>
       </div>`;
       }
-
+    }
     })
     .catch(error => console.error('Erreur', error));
   const notelistContainer = document.querySelector('.box-homepage .content .body');
@@ -103,6 +107,7 @@ async function getNotes() {
 // Edit notes
 let noteID = 0;
 function editNote(id) {
+  toggleNoteList();
   const elementToEdit = document.getElementById(id),
     title = elementToEdit.firstElementChild.firstElementChild.innerHTML;
   const content = elementToEdit.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
@@ -127,7 +132,7 @@ saveChange.addEventListener('click', (event) => {
   event.preventDefault();
   saveEdit();
 });
-
+// Note Save Edit function
 function saveEdit() {
   const data = `&title=${input.value}&note=${textarea.value}&noteID=${noteID}&saveChange=Save+Changes`;
   const url = './CRUD/editNotes.php',
@@ -144,6 +149,7 @@ function saveEdit() {
           document.body.appendChild(msg);
           hideMsg(msg);
           getNotes();
+          toggleNoteList(); // I added this to toggle page content everytime there is a saved edit
         }
         input.value = '';
         textarea.value = '';
@@ -178,7 +184,7 @@ function deleteNote(id) {
   modal.classList.add('show-modal');
   document.querySelector('.modal .buttons .yes').addEventListener('click', () => {
     const url = './CRUD/deleteNotes.php',
-    xhr = new XMLHttpRequest();
+      xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status === 200) {
         const result = JSON.parse(xhr.responseText);
@@ -189,8 +195,10 @@ function deleteNote(id) {
           const msg = document.createElement('div');
           msg.setAttribute('class', 'success tips');
           msg.innerHTML = 'Note deleted !';
-          document.body.appendChild(msg);
-          hideMsg(msg);
+          setTimeout(() => {
+            document.body.appendChild(msg);
+            hideMsg(msg);
+          }, 1000);
           getNotes();
         }
       }
@@ -209,6 +217,11 @@ function deleteNote(id) {
 // Design for mobile UI
 const noteBtn = document.querySelector('.mobile-header div');
 noteBtn.addEventListener('click', () => {
+  toggleNoteList();
+});
+
+function toggleNoteList() {
+  const notePage = document.querySelector('.box-homepage');
   if (noteBtn.classList.contains('your-notes')) {
     noteBtn.innerHTML = `
           </svg>
@@ -219,7 +232,6 @@ noteBtn.addEventListener('click', () => {
         </svg>
         <span class="text">Add note</span>`;
     noteBtn.classList.replace('your-notes', 'add-note');
-    toggleNoteList();
   } else {
     noteBtn.innerHTML = `
         <svg class="header-svg" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 384 512">
@@ -227,11 +239,6 @@ noteBtn.addEventListener('click', () => {
             d="M336 64H282.121C268.896 26.799 233.738 0 192 0S115.104 26.799 101.879 64H48C21.5 64 0 85.484 0 112V464C0 490.516 21.5 512 48 512H336C362.5 512 384 490.516 384 464V112C384 85.484 362.5 64 336 64ZM96 392C82.75 392 72 381.25 72 368S82.75 344 96 344S120 354.75 120 368S109.25 392 96 392ZM96 296C82.75 296 72 285.25 72 272S82.75 248 96 248S120 258.75 120 272S109.25 296 96 296ZM192 64C209.674 64 224 78.326 224 96C224 113.672 209.674 128 192 128S160 113.672 160 96C160 78.326 174.326 64 192 64ZM304 384H176C167.199 384 160 376.799 160 368C160 359.199 167.199 352 176 352H304C312.801 352 320 359.199 320 368C320 376.799 312.801 384 304 384ZM304 288H176C167.199 288 160 280.799 160 272C160 263.199 167.199 256 176 256H304C312.801 256 320 263.199 320 272C320 280.799 312.801 288 304 288Z" />
         <span class="text">Your notes</span>`;
     noteBtn.classList.replace('add-note', 'your-notes');
-    toggleNoteList();
   }
-});
-
-function toggleNoteList() {
-  const notePage = document.querySelector('.box-homepage');
   notePage.classList.toggle('up');
 }

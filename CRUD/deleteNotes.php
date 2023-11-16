@@ -1,5 +1,5 @@
 <?php
-require_once('../pdo.php');
+require_once('pdo.php');
 //DELETE
 if (isset($_POST['delete']) && isset($_POST['noteID'])) {
   if (!empty($_SESSION['user_id'])) {

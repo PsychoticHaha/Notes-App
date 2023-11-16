@@ -1,5 +1,5 @@
 <?php
-require_once('pdo.php');
+require_once('CRUD/pdo.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@ require_once('pdo.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="stylesheets/common.css">
   </head>
 
   <body>
@@ -70,7 +71,7 @@ require_once('pdo.php');
           </form>
         </div>
         <div class="new-user">
-          <a href="index.php">Have an account ?
+          <a href="index">Have an account ?
             <span class="underline">Login here.</span>
           </a>
         </div>

@@ -1,5 +1,5 @@
 <?php
-require_once('../pdo.php');
+require_once('pdo.php');
 try {
   // Errors prevent and recording
   if (isset($_POST['pdo'])) {

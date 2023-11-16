@@ -1,6 +1,6 @@
 <?php
 // EDIT NOTES
-require_once('../pdo.php');
+require_once('pdo.php');
 if (isset($_POST['title']) && !empty($_POST['note']) && isset($_POST['saveChange']) && $_POST['saveChange']=='Save Changes') {
   if (!empty($_SESSION['user_id'])) {
     try {
